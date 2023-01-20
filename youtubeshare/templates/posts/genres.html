@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  {% for posts in page_obj %}
+  <div class="post">
+      {% comment %} <div class="post-image">
+          <img src="https://html5book.ru/wp-content/uploads/2019/03/postimage6.jpg"> {% endcomment %}
+      </div>
+      <div class="post-content">
+          <div class="post-header">
+              <h1> {{ posts.author }} </h1>
+              <div class="post-meta">
+                  <time datetime="2019-04-01"> {{ posts.pub_date }} </time>
+                  <span class="author"> {{ genre.genres }} </span>
+                </div>
+              </div>
+              <p>
+                {{ posts.text }}
+              </p>
+                <p>
+                  <link> {{ posts.link }} </link>
+                </p>
+      </div>
+  </div>
+    {% if not forloop.last %}<hr>{% endif %}
+  {% endfor %} 
+</div>
+{% endblock content %}
